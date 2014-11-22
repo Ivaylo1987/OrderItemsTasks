@@ -17,12 +17,7 @@
         private const string NoSizeAvailable = "This size is not available.";
         private const string NotEnoughCounts = "There are not enough counts left from this size.";
 
-        // Poor man's dependency injection constructor. Use it in case there is no dependency container e.g. Ninject
-        //public OrderItemsService()
-        //    : this(new ApplicationData())
-        //{
-        //}
-
+        // Injected with a dependecy container e.g. Ninject
         public OrderItemsService(IApplicationData dataProvider)
             : base(dataProvider)
         {

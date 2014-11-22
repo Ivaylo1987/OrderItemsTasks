@@ -11,13 +11,7 @@
     {
         private IOrderItemsService orderItemsService;
 
-        // Poor man's dependency injection constructor. Use it in case there is no dependency container e.g. Ninject
-        //public OrderItemsController()
-        //    :this(new OrderItemsService())
-        //{
-        //}
-
-        // Inject this dependency with a dependecy container e.g. Ninject
+        // Injected with a dependecy container e.g. Ninject
         public OrderItemsController(IOrderItemsService service)
         {
             this.orderItemsService = service;

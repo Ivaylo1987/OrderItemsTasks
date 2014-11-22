@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Owin;
-using Owin;
-using Ninject;
-using Ninject.Web.WebApi.OwinHost;
-using Ninject.Web.Common.OwinHost;
+﻿using Application.Data;
 using Application.Data.Repositories;
 using Application.Data.UnitsOfWork;
-using Application.Data;
-using System.Reflection;
-using System.Web.Http;
 using Application.Web.Contracts;
 using Application.Web.Services;
+using Microsoft.Owin;
+using Ninject;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi.OwinHost;
+using Owin;
+using System.Reflection;
+using System.Web.Http;
 
 [assembly: OwinStartup(typeof(Application.Web.Startup))]
 

@@ -13,12 +13,7 @@
     {
         private IApplicationData data;
 
-        // Poor man's dependency injection constructor. Use it in case there is no dependency container e.g. Ninject
-        //public ApiService()
-        //    : this(new ApplicationData())
-        //{
-        //}
-
+        // Injected with a dependecy container e.g. Ninject
         public ApiService(IApplicationData dataProvider)
         {
             this.data = dataProvider;
@@ -29,7 +24,8 @@
 
         protected Order FindOrderById(int id)
         {
-            var order = this.Data.Orders.All().FirstOrDefault(o => o.Id == id);
+            var order = this.Data.Orders.All()
+                                        .FirstOrDefault(o => o.Id == id);
 
             return order;
         }
@@ -37,14 +33,15 @@
         protected ShoeModel FindShoeModelById(int id)
         {
             var shoeModel = this.Data.ShoeModels.All()
-                                       .FirstOrDefault(shoe => shoe.Id == id);
+                                     .FirstOrDefault(shoe => shoe.Id == id);
 
             return shoeModel;
         }
 
         protected AvailableSize FindAvailableSize(ShoeModel shoeModel, ShoeSizes size)
         {
-            var availableSize = shoeModel.AvailableSizes.FirstOrDefault(avs => avs.Size == size);
+            var availableSize = shoeModel.AvailableSizes
+                                         .FirstOrDefault(avs => avs.Size == size);
 
             return availableSize;
         }
