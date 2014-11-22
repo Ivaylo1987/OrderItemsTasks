@@ -14,10 +14,10 @@
         private IApplicationData data;
 
         // Poor man's dependency injection constructor. Use it in case there is no dependency container e.g. Ninject
-        public ApiService()
-            : this(new ApplicationData())
-        {
-        }
+        //public ApiService()
+        //    : this(new ApplicationData())
+        //{
+        //}
 
         public ApiService(IApplicationData dataProvider)
         {

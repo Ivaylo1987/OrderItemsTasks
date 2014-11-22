@@ -18,10 +18,10 @@
         private const string NotEnoughCounts = "There are not enough counts left from this size.";
 
         // Poor man's dependency injection constructor. Use it in case there is no dependency container e.g. Ninject
-        public OrderItemsService()
-            : this(new ApplicationData())
-        {
-        }
+        //public OrderItemsService()
+        //    : this(new ApplicationData())
+        //{
+        //}
 
         public OrderItemsService(IApplicationData dataProvider)
             : base(dataProvider)
