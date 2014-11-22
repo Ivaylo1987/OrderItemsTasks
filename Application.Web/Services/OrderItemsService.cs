@@ -10,7 +10,7 @@
     using System.Linq;
     using System.Net;
 
-    public class OrderItemsService : ApiService
+    public class OrderItemsService : ApiService, IOrderItemsService
     {
         private const string NoSuchOrder = "Such order does not exist.";
         private const string NoSuchModel = "There is no such shoe model.";
@@ -70,30 +70,6 @@
 
             return result;
         }
-
-
-        private Order FindOrderById(int id)
-        {
-            var order = this.Data.Orders.All().FirstOrDefault(o => o.Id == id);
-
-            return order;
-        }
-
-        private ShoeModel FindShoeModelById(int id)
-        {
-            var shoeModel = this.Data.ShoeModels.All()
-                                       .FirstOrDefault(shoe => shoe.Id == id);
-
-            return shoeModel;
-        }
-
-        private AvailableSize FindAvailableSize(ShoeModel shoeModel, ShoeSizes size)
-        {
-            var availableSize = shoeModel.AvailableSizes.FirstOrDefault(avs => avs.Size == size);
-
-            return availableSize;
-        }
-
 
         private void AttachToOrder(OrderItemModel item, AvailableSize aAvailableSize, ShoeModel shoeModel, Order order)
         {

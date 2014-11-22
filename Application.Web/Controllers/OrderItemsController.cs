@@ -1,15 +1,15 @@
 ﻿namespace Application.Web.Controllers
 {
+    using Application.Web.Contracts;
     using Application.Web.Models;
     using Application.Web.Services;
-
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
 
     public class OrderItemsController : BasicController
     {
-        private OrderItemsService orderItemsService;
+        private IOrderItemsService orderItemsService;
 
         // Poor man's dependency injection constructor. Use it in case there is no dependency container e.g. Ninject
         public OrderItemsController()
@@ -18,7 +18,7 @@
         }
 
         // Inject this dependency with a dependecy container e.g. Ninject
-        public OrderItemsController(OrderItemsService service)
+        public OrderItemsController(IOrderItemsService service)
         {
             this.orderItemsService = service;
         }
